@@ -67,6 +67,11 @@ for i in range(10):
     for c in csv_arr:
         os.rename(c, f"dataset1/test/class{i}/{c.split('/')[-1]}")
 
+for folder in os.listdir("dataset1/train"):
+    print(folder)
+    print('\t', len(os.listdir(f"dataset1/train/{folder}")))
+    print('\t', len(os.listdir(f"dataset1/test/{folder}")))
+
 
 # 불필요 데이터 삭제
 from shutil import rmtree

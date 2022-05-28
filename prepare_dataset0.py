@@ -446,6 +446,7 @@ for l, c in zip(train_label, train_csv):
     df = df.T
     df.columns = df.iloc[0, :]
     df = df.iloc[1:, :].reset_index(drop=True)
+    df = df.iloc[:368, :].reset_index(drop=True)
     df.to_csv(f"dataset0/train/{l}/{c.split('/')[-1]}", index=False)
 
 for l, c in zip(test_label, test_csv):
@@ -460,6 +461,7 @@ for l, c in zip(test_label, test_csv):
     df = df.T
     df.columns = df.iloc[0, :]
     df = df.iloc[1:, :].reset_index(drop=True)
+    df = df.iloc[:368, :].reset_index(drop=True) # 최소 길이 기준으로 통일
     df.to_csv(f"dataset0/test/{l}/{c.split('/')[-1]}", index=False)
 
 for folder in os.listdir("dataset0/train"):
